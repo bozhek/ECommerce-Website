@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Original index</title>
+    <link href="style/styles.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">WIPEOUT<span>WAREHOUSE</span></div>
+                <nav>
+                    <ul>
+                        <li><a class="nav-link active" href="#">Home</a></li>
+                        <li><a class="nav-link" href="#products">Products</a></li>
+                        <li><a class="nav-link" href="#contact">Contact</a></li>
+                        <li class="cart-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">0</span>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Welcome to Wipeout Warehouse</h1>
+            <p>Ride harder, fall louder, laugh longer — that's snowboarding, and that's us.</p>
+            <a class="btn" href="#products">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Filters Section -->
+    
+
+    <!-- Products and Filters Section -->
+    <section class="container" id="products">
+        <h2 class="section-title">Our Gear</h2>
+
+        <!-- Filters -->
+        <div class="filters">
+            <div class="filter-row">
+                <div class="filter-type">
+                    <label for="filter-type">Type</label>
+                    <select id="filter-type">
+                        <option value="">All types</option>
+                    </select>
+                </div>
+    
+                <div class="filter-price">
+                    <label for="filter-min">Price</label>
+                    <input id="filter-min" type="number" placeholder="Min" inputmode="numeric" />
+                    <span class="dash">-</span>
+                    <input id="filter-max" type="number" placeholder="Max" inputmode="numeric" />
+                </div>
+    
+                <div class="filter-actions">
+                    <button id="filter-apply" class="btn btn-small" type="button">Apply</button>
+                    <button id="filter-reset" class="btn-secondary btn-small" type="button">Reset</button>
+                </div>
+    
+                <span id="filter-meta" class="filter-meta" aria-live="polite"></span>
+            </div>
+        </div>
+        
+        <!-- Products -->
+        <div class="products-grid"></div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <form class="contact-form" id="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input id="name" placeholder="Your Name" required="" type="text" />
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input id="email" placeholder="Your Email" required="" type="email" />
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" placeholder="Your Message" required=""></textarea>
+                </div>
+                <button class="submit-btn" type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>We're not just a snowboard shop — we're a crew that celebrates the highs, the falls, and the
+                        stories that keep you riding.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="#">Home</a></p>
+                    <p><a href="#products">Products</a></p>
+                    <p><a href="#contact">Contact</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 新潟県新潟市中央区</p>
+                    <p><i class="fas fa-phone"></i> +890-0000-0000</p>
+                    <p><i class="fas fa-envelope"></i> info@wipeoutwarehouse.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 WipeoutWarehouse. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
