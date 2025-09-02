@@ -188,7 +188,6 @@ nav ul li a.active {
     color: var(--accent-contrast);
     padding: 12px 30px;
     border-radius: 30px;
-    border: none;
     text-decoration: none;
     font-weight: bold;
     transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
@@ -863,6 +862,10 @@ footer {
 }
 
 /* buttons fix for filters and cart */
+.btn {    
+    border: none;
+}
+
 .cart-actions .btn-primary,
 .cart-actions .btn-secondary,
 .cart-actions .btn-danger {
