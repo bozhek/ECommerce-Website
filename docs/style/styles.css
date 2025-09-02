@@ -188,6 +188,7 @@ nav ul li a.active {
     color: var(--accent-contrast);
     padding: 12px 30px;
     border-radius: 30px;
+    border: none;
     text-decoration: none;
     font-weight: bold;
     transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
@@ -619,6 +620,16 @@ nav ul li a.active {
     border-color: transparent;
 }
 
+/* Back button on details page */
+.back-row {
+    margin-bottom: 20px;
+}
+
+.back-row button {
+    cursor: pointer;
+    font-weight: 600;
+}
+
 /* Quantity controls */
 .qty-control {
     display: inline-flex;
@@ -865,10 +876,6 @@ footer {
 .filter-row .btn-primary,
 .filter-row .btn-secondary {
     flex: 0 0 auto;
-}
-
-.filter-row .btn {
-    border: none;
 }
 
 /* Responsive */
