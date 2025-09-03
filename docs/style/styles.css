@@ -558,6 +558,15 @@ nav ul li a.active {
     align-items: center;
 }
 
+.cart-item-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+    gap: 10px;
+}
+
+
 .cart-item-title {
     font-weight: 600;
     color: var(--text-strong);
