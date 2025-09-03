@@ -443,28 +443,28 @@ function renderCart() {
         return;
     }
     wrap.innerHTML = entries.map(({ id, qty, p }) => {
-        const priceNum = parseFloat(String(p.price).replace(/[^0-9.]/g,'')) || 0;
+        const priceNum = parseFloat(String(p.price).replace(/[^0-9.]/g, '')) || 0;
         const line = (priceNum * qty).toFixed(2);
         return `
-            <div class="cart-item" data-id="${id}">
-                <div class="cart-item-row">
-                    <div>
-                        <div class="cart-item-title">${p.title}</div>
-                        <div class="cart-item-price">${p.price}</div>
-                    </div>
-                    <div class="cart-item-total">$${line}</div>
+        <div class="cart-item" data-id="${id}">
+            <div class="cart-item-row">
+                <div>
+                    <div class="cart-item-title">${p.title}</div>
+                    <div class="cart-item-price">${p.price}</div>
                 </div>
-                <div class="cart-item-row" style="margin-top:8px">
-                    <div class="qty-control">
-                        <button type="button" class="qty-btn" data-action="dec" aria-label="Decrease">-</button>
-                        <input type="number" class="qty-input" min="0" step="1" value="${qty}" inputmode="numeric"/>
-                        <button type="button" class="qty-btn" data-action="inc" aria-label="Increase">+</button>
-                    </div>
-                    <button class="btn-secondary" data-remove>Remove</button>
-                </div>
+                <div class="cart-item-total">$${line}</div>
             </div>
-        `;
-    }).join('');
+            <div class="cart-item-actions">
+                <div class="qty-control">
+                    <button type="button" class="qty-btn" data-action="dec" aria-label="Decrease">−</button>
+                    <input type="number" class="qty-input" min="0" step="1" value="${qty}" inputmode="numeric"/>
+                    <button type="button" class="qty-btn" data-action="inc" aria-label="Increase">+</button>
+                </div>
+                <button class="btn-secondary" data-remove>Remove</button>
+            </div>
+        </div>
+    `;
+        }).join('');
 
     // bind line controls
     wrap.querySelectorAll('.cart-item').forEach(card => {
