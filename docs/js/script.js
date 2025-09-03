@@ -3,20 +3,6 @@ let cartCount = 0;
 const cartElement = document.querySelector('.cart-count');
 const addToCartButtons = document.querySelectorAll('.add-to-cart');
 
-// Initialize cart from localStorage if available
-document.addEventListener('DOMContentLoaded', function() {
-    const savedCartCount = localStorage.getItem('cartCount');
-    if (savedCartCount) {
-        cartCount = parseInt(savedCartCount);
-        cartElement.textContent = cartCount;
-    }
-
-    // Check if we're on the product details page and update product info
-    if (window.location.pathname.includes('product-details.html')) {
-        updateProductDetails();
-    }
-});
-
 // Add to cart buttons functionality
 addToCartButtons.forEach(button => {
     button.addEventListener('click', (e) => {
@@ -300,7 +286,6 @@ function renderReviews(productId) {
 
 /* Storage keys */
 const CART_STORAGE_KEY = "cart_v1";
-const COUNTER_PREFIX = "ctr_";
 
 /* Read cart: { [id]: qty } */
 function readCart() {
@@ -319,13 +304,6 @@ function cartItemsTotal(cart = readCart()) {
     return Object.values(cart).reduce((a,b)=>a + (parseInt(b)||0), 0);
 }
 
-/* Increment per-product counter */
-function bumpCounter(id, by) {
-    const key = COUNTER_PREFIX + id;
-    const cur = parseInt(localStorage.getItem(key) || "0", 10);
-    localStorage.setItem(key, String(cur + (by|0)));
-}
-
 /* Update header bubble (.cart-count) */
 function updateCartBadge() {
     const el = document.querySelector('.cart-count');
@@ -342,7 +320,6 @@ function addToCart(id, qty = 1) {
     const cart = readCart();
     cart[id] = (parseInt(cart[id]) || 0) + (qty|0);
     writeCart(cart);
-    bumpCounter(id, qty|0);
 }
 
 function setQty(id, qty) {
@@ -539,8 +516,7 @@ function bindIndexGridHandlers() {
             const id = card.getAttribute('data-id');
             window.location.href = `product-details.html?id=${id}`;
         }
-    });
-}
+    });}
 
 /* Details page qty controls */
 function ensureDetailsQtyControls() {
@@ -759,7 +735,11 @@ function setupFiltersUI() {
 document.addEventListener('DOMContentLoaded', function() {
     try {
         setupFiltersUI();                       // render filter UI
+        
         renderProductsGridFromDict();           // render index cards from dict
+        if (window.location.pathname.includes('product-details.html')) {
+            updateProductDetails();             // Check if we're on the product details page and update product info
+        }
         if (document.querySelector('.products-grid')) {
             renderProductsGridWithFilter({});   // initial render with no filter
         }
